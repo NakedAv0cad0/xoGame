@@ -72,9 +72,9 @@
   transform: rotate(45deg) translate(30px, -30px);
 }
 
-.end-msg {
+.end {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.212);
+  color: rgba(0, 0, 0, 0.8);
   margin: 0 auto;
   display: block;
   font-weight: bold;
@@ -85,13 +85,13 @@
   border-radius: 10px;
   transition: 0.3s;
 }
-.end-msg:hover {
+.end:hover {
   background-color: #008cff;
   outline-color: #008cff;
   color: white;
 }
 
-.on-game-msg {
+.board {
   color: white;
   margin: 0 auto;
   outline: 2px solid rgba(41, 45, 48, 0.664);
@@ -99,5 +99,6 @@
   padding: 10px;
   background-color: rgba(41, 45, 48, 0.664);
   border-radius: 10px;
-  width: 200px;
+  width: 100px;
+  text-align: center;
 }

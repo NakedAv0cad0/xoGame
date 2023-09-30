@@ -72,7 +72,7 @@
     }
   }
 }
-.end-msg {
+.end {
   cursor: pointer;
   color: rgb(0 0 0 / 80%);
   margin: 0 auto;
@@ -90,7 +90,7 @@
     color: white;
   }
 }
-.on-game-msg {
+.board {
   color: white;
   margin: 0 auto;
   outline: 2px solid rgba(41, 45, 48, 0.664);
@@ -98,5 +98,6 @@
   padding: 10px;
   background-color: rgba(41, 45, 48, 0.664);
   border-radius: 10px;
-  width: 200px;
+  width: 100px;
+  text-align: center;
 }
