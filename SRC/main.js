@@ -11,6 +11,7 @@ var stop = false;
 // append board
 document.body.appendChild(board);
 debugger;
+timer();
 
 // loop for creating boxs with a special classes
 for (let i = 1; i < 10; i++) {
@@ -77,7 +78,7 @@ function reset(token= "itcantbeanylementnamedlikethis") {
     for (let mark of winMark) {
       box.classList.remove(mark, "done", token);
     }
-  }
+    }
 }
 
 // resetart automaticly when all boxs are filled with a draw result
@@ -160,32 +161,33 @@ function objlenght(obj) {
 
 document.addEventListener("click", (element) =>  {
   if (element.target.classList.contains("end")) {
-    reset("finish")
-    document.querySelector(".win").remove();
-    // document.querySelector(".end").remove();
+    // reset("finish");
+    // document.querySelector(".win").remove();
+    window.location.reload();// bruh
   };
 })
 
 // work on a timer
-
-let s = 0;
-let min = 0;
-let zeroS = 0;
-let zeroM = 0;
-function counter(element) {
-  if (s < 60) s++;
-  if (s === 60) {
-    s = 0;
-    min++
+function timer() {
+  let s = 0;
+  let min = 0;
+  let zeroS = 0;
+  let zeroM = 0;
+  function counter(element) {
+    if (s < 60) s++;
+    if (s === 60) {
+      s = 0;
+      min++
+    }
+    let pText = `${zeroM}${min} : ${zeroS}${s}`;
+    if (s >= 10) pText = `${zeroM}${min} : ${s}`;// it's sitll need to deal with the min numbers
+    return element.innerHTML = pText;
   }
-  let pText = `${zeroM}${min} : ${zeroS}${s}`;
-  if (s >= 10) pText = `${zeroM}${min} : ${s}`;// it's sitll need to deal with the min numbers
-  return element.innerHTML = pText;
+  let timer = setInterval(() => {
+    if (!board.classList.contains("on-game")) return;
+    counter(board);
+    if (board.classList.contains("end")) {
+      clearInterval(timer);
+    }
+  }, 1000);
 }
-setInterval(() => {
-  if (!board.classList.contains("on-game")) return;
-  counter(board);
-  if (board.classList.contains("end")) {
-    clearInterval(1);
-  }
-}, 1000);
